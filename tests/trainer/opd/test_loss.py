@@ -128,4 +128,3 @@ def test_kl_decreases_in_tiny_optimization_loop():
 
     assert first_loss is not None and last_loss is not None
     assert last_loss < first_loss
-

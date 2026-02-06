@@ -15,4 +15,3 @@
 from .teacher_logprob_worker import TeacherLogProbWorker
 
 __all__ = ["TeacherLogProbWorker"]
-

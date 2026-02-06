@@ -30,9 +30,8 @@ from torchdata.stateful_dataloader import StatefulDataLoader
 from torchdata.stateful_dataloader.sampler import RandomSampler
 from transformers import AutoModelForCausalLM
 
-from verl.utils.dataset.rl_dataset import collate_fn
 from verl.utils.config import omega_conf_to_dataclass
-from verl.utils.dataset.rl_dataset import get_dataset_class
+from verl.utils.dataset.rl_dataset import collate_fn, get_dataset_class
 from verl.utils.import_utils import load_extern_object
 from verl.utils.torch_dtypes import PrecisionType
 from verl.utils.torch_functional import get_response_mask
@@ -208,7 +207,7 @@ class OPDTrainer:
             return resume_from_path
         if not os.path.exists(tracker_file):
             return None
-        with open(tracker_file, "r", encoding="utf-8") as f:
+        with open(tracker_file, encoding="utf-8") as f:
             step = int(f.read().strip())
         ckpt_path = os.path.join(default_local_dir, f"global_step_{step}")
         return ckpt_path if os.path.isdir(ckpt_path) else None

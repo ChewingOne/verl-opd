@@ -81,4 +81,3 @@ class TeacherLogProbWorker:
                 "topk_indices": topk_indices,
             }
         return {"logits": logits}
-

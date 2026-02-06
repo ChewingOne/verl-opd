@@ -15,4 +15,3 @@
 from .trainer import OPDTrainer
 
 __all__ = ["OPDTrainer"]
-
