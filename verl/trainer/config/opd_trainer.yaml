@@ -1,0 +1,30 @@
+# OPD trainer config.
+defaults:
+  - data@data: legacy_data
+  - model@model: hf_model
+  - algorithm@algorithm: opd
+  - _self_
+
+trainer:
+  total_epochs: 1
+  total_training_steps: null
+  project_name: verl_examples
+  experiment_name: opd
+  logger: ["console"]
+  save_freq: -1
+  resume_mode: auto
+  resume_from_path: null
+  default_hdfs_dir: null
+  default_local_dir: checkpoints/${trainer.project_name}/${trainer.experiment_name}
+  max_ckpt_to_keep: null
+  device: cuda
+  seed: 42
+  student_dtype: bf16
+
+optim:
+  lr: 1.0e-5
+  weight_decay: 0.0
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  max_grad_norm: 1.0
+

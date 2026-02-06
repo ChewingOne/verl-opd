@@ -1,0 +1,51 @@
+# OPD algorithm name.
+name: opd
+
+# Number of student samples per prompt (K).
+num_samples_per_prompt: 2
+
+# Max generated tokens for each sample.
+max_new_tokens: 256
+
+# Sampling temperature for student rollout.
+temperature: 1.0
+
+# Top-p for student rollout.
+top_p: 1.0
+
+# Top-k for student rollout. 0 disables top-k.
+top_k: 0
+
+# Whether to exclude prompt tokens from OPD loss.
+mask_prompt_tokens: true
+
+# Token reduction for KL loss.
+kl_reduction: mean
+
+# Path to teacher model.
+teacher_model_path: null
+
+# Teacher dtype: fp16|bf16|fp32.
+teacher_dtype: bf16
+
+# Teacher inference engine.
+teacher_engine: hf_transformers
+
+# Teacher device map.
+teacher_device_map: auto
+
+# 0 means full vocab teacher logits, >0 means top-k approximation.
+approx_teacher_topk: 0
+
+# Micro-batch size over sampled sequences (B*K) for forward pass.
+microbatch_size: 1
+
+# Prompt batch size B per optimization step.
+batch_size_prompts: 8
+
+# Gradient accumulation steps.
+gradient_accumulation: 1
+
+# Logging frequency in steps.
+log_every: 10
+
